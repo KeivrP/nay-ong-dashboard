@@ -4,6 +4,7 @@ import { montserrat } from "../ui/font";
 import RevenueChart from "../ui/dashboard/revenue-chart";
 import LatestInvoices from "../ui/dashboard/latest-invoices";
 import { CardSkeleton, LatestInvoicesSkeleton, RevenueChartSkeleton } from "../ui/skeletons";
+import Modal from "../ui/modal";
 
 export default function pageDashboard() {
   return (

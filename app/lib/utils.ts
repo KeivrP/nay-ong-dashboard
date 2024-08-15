@@ -7,6 +7,33 @@ export const formatCurrency = (amount: number) => {
   });
 };
 
+export type Meses = {
+  [key: string]: number;
+};
+
+export type Data = {
+  Objetivos: string;
+  MetaGeneral: number;
+  MetaRestante: number;
+  Meses: Meses;
+};
+
+export function getRemainingMonths(data: Data[]): Meses {
+  const months = ["Enero", "Febrero", "Marzo", "Abril", "Mayo", "Junio", "Julio", "Agosto", "Septiembre", "Octubre", "Noviembre", "Diciembre"];
+  const currentMonthIndex = new Date().getMonth(); // Obtiene el índice del mes actual (0-11)
+  const remainingMonths = months.slice(currentMonthIndex); // Obtiene los meses restantes desde el mes actual
+
+  const result: Meses = {};
+  remainingMonths.forEach(month => {
+    if (data[0].Meses[month] !== undefined) {
+      result[month] = data[0].Meses[month];
+    }
+  });
+
+  return result;
+}
+
+
 export const formatDateToLocal = (
   dateStr: string,
   locale: string = 'en-US',
